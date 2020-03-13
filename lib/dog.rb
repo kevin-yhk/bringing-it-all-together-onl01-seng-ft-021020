@@ -30,4 +30,6 @@ class Dog
     new_dog.id = row[0]
     new_dog 
   end
+  
+  def self.find_by_name
 end 
