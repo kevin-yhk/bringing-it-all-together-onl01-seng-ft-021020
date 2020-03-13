@@ -2,7 +2,7 @@ class Dog
   attr_accessor :breed, :id, :name
   
   
-  def initialize (id: nil, name:,  breed:)
+  def initialize (id: nil, name:, breed:)
     @name = name 
     @breed = breed
   end 
@@ -13,7 +13,6 @@ class Dog
       name TEXT, 
       breed TEXT)
     SQL
-    
     DB[:conn].execute(sql)
   end 
   
@@ -35,11 +34,8 @@ class Dog
     sql = <<-SQL 
       SELECT * FROM dogs
       WHERE name = ?
-      
     SQL
-    
     DB[:conn].execute(sql, name).map do |row|
-      # binding.pry 
       self.new_from_db(row)
     end.first
     
