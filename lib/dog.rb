@@ -31,7 +31,18 @@ class Dog
     new_dog 
   end
   
- 
+   def save
+    if self.id
+      self.update
+    else
+    sql = <<-SQL
+      INSERT INTO students (name, grade)
+      VALUES (?, ?)
+    SQL
+    DB[:conn].execute(sql, self.name, self.grade)
+    @id = DB[:conn].execute("SELECT last_insert_rowid() FROM students")[0][0]
+    end
+  end
   
   
   # def self.find_by_name(name)
