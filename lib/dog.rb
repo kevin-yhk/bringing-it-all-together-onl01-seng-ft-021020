@@ -91,12 +91,10 @@ class Dog
       dog_data = dogs[0]
       new_dogs = self.new_from_db(dog_data)
   
-  else 
-    new_dogs = self.create({:name => name, :breed => breed})
+    else 
+      new_dogs = self.create({:name => name, :breed => breed})
+    end 
+  
+    new_dogs
   end 
-  # binding.pry
-  new_dogs
-
-end 
-
 end 
