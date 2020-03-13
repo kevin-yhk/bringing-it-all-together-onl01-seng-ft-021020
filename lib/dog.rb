@@ -31,7 +31,7 @@ class Dog
     new_dog 
   end
   
- def save 
+ 
   
   
   # def self.find_by_name(name)
