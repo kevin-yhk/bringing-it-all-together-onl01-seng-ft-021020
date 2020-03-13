@@ -61,14 +61,14 @@ class Dog
       @id = DB[:conn].execute("SELECT last_insert_rowid() FROM dogs")[0][0]
       
     self 
+    end 
   end 
-end 
 
-  def self.create()
-    new_dog = self.new(hash)
-  new_dog.save
-  new_dog
-end 
+  def self.create(dogs)
+    new_dog = self.new(dogs)
+    new_dog.save
+    new_dog
+  end 
 
 def self.find_by_id(id)
   sql = <<-SQL
